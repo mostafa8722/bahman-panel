@@ -1,5 +1,20 @@
 {
   "compilerOptions": {
+
+    "baseUrl": "./src",
+   
+    "paths": {
+      "@": ["./src"],
+      "@/*": ["./src/*"],
+      "@components": ["./src/components"],
+      "@store": ["./src/store"],
+    },
+    
+   
+    "filesGlob": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+  ],
     "target": "es5",
     "lib": [
       "dom",
