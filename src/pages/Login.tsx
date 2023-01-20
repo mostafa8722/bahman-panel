@@ -16,7 +16,7 @@ display:flex;
 margin:0px auto;
 flex-direction:column;
 width:450px;
-height: auto;
+height: 500px;
 margin-top:50px;
 background:#ffffff;
 border-radius:10px;

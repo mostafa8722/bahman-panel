@@ -5,12 +5,14 @@ import { LoginInterface } from "../../utils/interfaces";
 import TextField from "@mui/joy/TextField";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
-
+import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const FormEl = styled("form")(
   () => `
 display:flex;
 flex-direction:column;
+align-items:center;
 `
 );
 
@@ -20,6 +22,7 @@ display:flex;
 flex-direction:column;
 margin:10px 0px 0px 0px;
 align-items:center;
+width:100%;
 
 `
 );
@@ -44,11 +47,68 @@ const ErrorEl = styled("span")(
   () => `
 color:red;
 display:flex;
-margin-top:20px;
+margin-top:30px;
 width:100%;
 margin-left:35px;
 font-size:0.9rem`
 );
+
+const SubmitButtonEl = styled("button")(() => `
+margin-top:30px;
+height:40px;
+width:90%;
+background:#373063;
+color:#ffffff;
+display:flex;
+justify-content:center;
+align-items:center;
+border:none;
+border-radius:10px;
+cursor:pointer;
+`)
+
+const ForgetPasswordEl = styled(Link)(() => `
+color:rgba(91, 147, 237, 1);
+display:flex;
+justify-content:end;
+margin-top:10px;
+width:90%;
+
+`)
+
+const MoreEl = styled("div")(() => `
+display:grid;
+grid-template-columns:auto auto;
+margin-top:20px;
+width:90%;
+`)
+
+const RegisterEl = styled(Link)(() => `
+color:#ffffff;
+display:flex;
+justify-content:center;
+margin-top:10px;
+height:40px;
+width:100px;
+background:#28a745;
+border-radius:10px;
+align-items:center;
+
+
+`)
+const LoginGoogleEl = styled("div")(() => `
+display:flex;
+justify-content:center;
+align-items:center;
+background:#eeeeee;
+border-radius:10px;
+cursor:pointer;
+`)
+const GoogleTextEl = styled("span")(() => `
+display:flex;
+margin-left:10px;
+
+`)
 const LoginForm = () => {
   return (
     <>
@@ -123,10 +183,22 @@ const LoginForm = () => {
                 {errors.password && touched.password && errors.password}
               </ErrorEl>
             </FieldEl>
-
-            <button type="submit" disabled={isSubmitting}>
+            <ForgetPasswordEl to="/forget-password">forget password</ForgetPasswordEl>
+            <SubmitButtonEl type="submit" disabled={isSubmitting}>
               Submit
-            </button>
+            </SubmitButtonEl>
+
+            <MoreEl>
+              <RegisterEl>register  </RegisterEl>
+              <LoginGoogleEl> 
+                 <FcGoogle size={25} />
+                 <GoogleTextEl>
+                  Login By Google
+                 </GoogleTextEl>
+                
+                   </LoginGoogleEl>
+            </MoreEl>
+
           </FormEl>
         )}
       </Formik>
